@@ -117,15 +117,7 @@ if (is_post_request()){
                         </div>
                         <legend>Educational Background</legend>
                         <div class="form-group">
-                            <select name="degree" class="form-control select-degree" style="width: 100%;">
-                                <option value=""></option>
-                                <option value="doctor">Doctor</option>
-                                <option value="masters">Masters</option>
-                                <option value="bachelor">Bachelor</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input name="granting" class="form-control" type="text" placeholder="Granting">
+                            <input name="granting" class="form-control" type="text" placeholder="Highest Degree Earned Granting">
                         </div>
                         <div class="form-group">
                             <div class="input-group date" id="datepick" data-target-input="nearest">

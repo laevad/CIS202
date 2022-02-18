@@ -41,7 +41,7 @@ function add_product($faculty_data){
                 }
 
                 $sql = "INSERT INTO users ";
-                $sql .= "(firstname, lastname, mi, gender, email, contact, image_path, civil_status, address, dept, curr_rank, curr_pos, deg_earned, granting, date_grad ) ";
+                $sql .= "(firstname, lastname, mi, gender, email, contact, image_path, civil_status, address, dept, curr_rank, curr_pos, granting, date_grad ) ";
                 $sql .= "VALUES (";
                 $sql .= "'" . db_escape($db, $faculty_data['firstname']) ."',";
                 $sql .= "'" . db_escape($db, $faculty_data['lastname']) ."',";
@@ -55,7 +55,6 @@ function add_product($faculty_data){
                 $sql .= "'" . db_escape($db, $faculty_data['dept']) . "',";
                 $sql .= "'" . db_escape($db, $faculty_data['curr_rank']) . "',";
                 $sql .= "'" . db_escape($db, $faculty_data['curr_pos']) . "',";
-                $sql .= "'" . db_escape($db, $faculty_data['deg_earned']) . "',";
                 $sql .= "'" . db_escape($db, $faculty_data['granting']) . "',";
                 $sql .= "'" . db_escape($db, $faculty_data['date_grad']) . "'";
                 $sql .= ")";
@@ -80,7 +79,6 @@ function update_user($faculty_data) {
                 $faculty_data['fileActualExt'] = strtolower(end($fileExt));
                 $fileNameNew = uniqid().rand(1,10000000).$_SESSION['user_id'].".".$faculty_data['fileActualExt'];
             }
-
             $destination_path = dirname(getcwd().DIRECTORY_SEPARATOR)."\uploads\\";
             $fileDestination = $destination_path.$fileNameNew;
             if ($faculty_data['fileName'] != "noimage.png" && $faculty_data['fileTmpName'] != ""){
@@ -102,7 +100,6 @@ function update_user($faculty_data) {
             $sql .= "dept='" . db_escape($db, $faculty_data['dept']) . "', ";
             $sql .= "curr_rank='" . db_escape($db, $faculty_data['curr_rank']) . "', ";
             $sql .= "curr_pos='" . db_escape($db, $faculty_data['curr_pos']) . "', ";
-            $sql .= "deg_earned='" . db_escape($db, $faculty_data['deg_earned']) . "', ";
             $sql .= "granting='" . db_escape($db, $faculty_data['granting']) . "', ";
             $sql .= "date_grad='" . db_escape($db, $faculty_data['date_grad']) . "' ";
             $sql .= "WHERE id='" . db_escape($db, $faculty_data['id']) . "' ";
@@ -115,8 +112,19 @@ function update_user($faculty_data) {
         db_disconnect($db);
         exit;
     }
-
-
+}
+function delete_user($user) {
+    global $db;
+    $sql = "DELETE FROM users ";
+    $sql .= "WHERE id='" . db_escape($db, $user['id']) . "' ";
+    $sql .= "LIMIT 1;";
+    $result = mysqli_query($db, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($db), E_USER_ERROR);
+    if($result ==true) {
+        return true;
+    }
+    echo mysqli_error($db);
+    db_disconnect($db);
+    exit;
 
 }
 

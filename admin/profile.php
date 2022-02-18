@@ -2,6 +2,14 @@
 
 <?php require_login(); ?>
 <?php $get_data = display();
+if (isset($_GET['id'])){
+    $id['id'] = $_GET['id'];
+    if(is_post_request()) {
+        $result = delete_user($id);
+        redirect_to(url_for('admin/profile.php'));
+    }
+}
+
 ?>
 <?php $title = 'Faculty Profile System' ?>
 <?php include '../layouts/admin-layouts/header.php' ?>
@@ -13,7 +21,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?php echo url_for('admin/profile.php')?>">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?php echo url_for('admin/')?>">Home</a></li>
                     <li class="breadcrumb-item active">Profile</li>
                 </ol>
             </div>
@@ -44,7 +52,6 @@
                         <tr class="">
                             <td><?php echo $data['id'] ?></td>
                             <td>
-
                                 <?php
                                 if ($data['image_path'] == null) { ?>
                                     <img src="<?php echo url_for('assets/img/noimage.png')?>" alt="" class="img-circle img-size-50">
@@ -63,15 +70,18 @@
                                     </button>
                                     <div class="dropdown-menu bg-warning" role="menu">
                                         <a class="dropdown-item" href="<?php echo url_for('admin/edit-faculty.php?id='.$data['id'])?>"><i class="fa fa-edit text-secondary mr-2"></i>Edit</a>
-<!--                                        <a class="dropdown-item"  href=""><i class="fa fa-eye text-danger mr-2"></i>Delete</a>-->
+                                        <form action="<?php echo url_for('admin/profile.php?id='.$data['id'])?>" method="post">
+                                           <button class="dropdown-item" type="submit">
+                                               <i class="fa fa-trash text-danger mr-2"></i>Delete
+                                           </button>
+                                        </form>
                                     </div>
                                 </div>
 
                             </td>
                         </tr>
                     <?php } ?>
-                <?php }else{ ?>
-                <?php } ?>
+                <?php }?>
                 </tbody>
             </table>
         </div>

@@ -12,11 +12,26 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a type="button" class="nav-link <?php echo getCurrentPage() == '/admin/profile.php' ? 'active active-btn-color' : '' ?>"  href="<?php echo url_for('admin/profile.php') ?>">
+                <li class="nav-item menu-open">
+                    <a type="button" class="nav-link "  href="#">
                         <i class="nav-icon fas fa-user"></i>
-                        <p>Profile</p>
+                        <p>Faculty</p>
+                        <i class="right fas fa-angle-left"></i>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?php echo url_for('admin/profile.php') ?>" class="nav-link <?php echo getCurrentPage() == '/admin/profile.php' ? 'active active-btn-color' : '' ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p class="text-white">Profile</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo url_for('admin/add-faculty.php') ?>" class="nav-link <?php echo getCurrentPage() == '/admin/add-faculty.php' ? 'active active-btn-color' : '' ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p class="text-white">Add Profile</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a type="button" class="nav-link"  href="<?php echo url_for('logout.php')?>">

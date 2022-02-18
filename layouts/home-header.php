@@ -6,7 +6,7 @@
     <title>Faculty Profile System</title>
     <link rel="stylesheet" href="<?php echo url_for('assets/css/style.css')?>">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="<?php echo url_for('assets/dist/css/adminlte.min.css')?>">
+    <link rel="stylesheet" href="<?php echo url_for('assets/css/adminlte.min.css')?>">
 </head>
 <body>
 <div class="jumbotron jumbotron-main" style="">

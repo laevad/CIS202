@@ -127,17 +127,8 @@ $user = find_user_by_id($id);
                         </div>
                         <legend>Educational Background</legend>
                         <div class="form-group">
-                            <label for="degree">Highest Degree Earned</label>
-                            <select id="degree" name="degree" class="form-control select-degree" style="width: 100%;">
-                                <option value=""></option>
-                                <option value="doctor" <?php echo $user['deg_earned'] == 'doctor' ? 'selected': ''?>>Doctor</option>
-                                <option value="masters" <?php echo $user['deg_earned'] == 'masters' ? 'selected': ''?>>Masters</option>
-                                <option value="bachelor" <?php echo $user['deg_earned'] == 'bachelor' ? 'selected': ''?>>Bachelor</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="granting">Granting</label>
-                            <input id="granting" name="granting" class="form-control" type="text" value="<?php echo $user['granting']; ?>" placeholder="Granting">
+                            <label for="granting">Highest Degree Earned Granting</label>
+                            <input id="granting" name="granting" class="form-control" type="text" value="<?php echo $user['granting']; ?>" placeholder="Highest Degree Earned Granting">
                         </div>
                         <div class="form-group">
                             <label for="date_grad">Date of Graduation</label>

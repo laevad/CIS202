@@ -104,10 +104,17 @@ body{
     transform: translate(0px, -8px);
     transition: .6s;
 }
-img{
+.img{
     border-radius:50%;
     width: 150px;
     height: 150px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+.blank{
+    width: 200px;
+    height: 200px;
     text-align: center;
     margin: 0 auto;
     display: block;
