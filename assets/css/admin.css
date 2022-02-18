@@ -1,0 +1,14 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.active-btn-color{
+    background: rgba(244, 129, 40, 0.8) !important;
+}
+
+.error{
+    color: red;
+}
+.dropdown-menu {
+    min-width: 0 !important;
+}
