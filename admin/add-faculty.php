@@ -29,7 +29,7 @@ if (is_post_request()){
     $faculty_data['dept'] = $_POST['dept'];
     $faculty_data['curr_rank'] = $_POST['curr_rank'];
     $faculty_data['curr_pos'] = $_POST['curr_pos'];
-    $faculty_data['deg_earned'] = $_POST['degree'];
+//    $faculty_data['deg_earned'] = $_POST['degree'];
     $faculty_data['granting'] = $_POST['granting'];
     $faculty_data['date_grad'] = $_POST['date_grad'];
     add_product ($faculty_data);
@@ -102,8 +102,10 @@ if (is_post_request()){
                         <div class="form-group">
                             <input name="address" class="form-control" type="text" placeholder="Permanent Address">
                         </div>
+
                         <div class="form-group">
-                            <input name="contact" class="form-control" type="number" placeholder="Contact">
+<!--                            <input name="contact" class="form-control" type="number" placeholder="Contact">-->
+                            <input id="phone" type="text" name="contact" class="form-control"  />
                         </div>
                         <legend>Affiliation</legend>
                         <div class="form-group">

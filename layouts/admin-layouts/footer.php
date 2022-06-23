@@ -52,7 +52,16 @@
 
 <script src="<?php echo url_for('assets/js/bootstrap-filestyle.min.js')?>"></script>
 
+
 <script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        preferredCountries: ["ph"],
+        autoPlaceholder: true,
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
     $(function () {
         $('#table').DataTable({
             "paging": true,
@@ -117,6 +126,14 @@
         text : '<i class="fa fa-upload"></i> Choose profile picture',
         dragdrop: false
     });
+
+
+    jQuery.validator.addMethod("phoneValidation", function(phone_number, element) {
+        phone_number = phone_number.replace(/\s+/g, "");
+        return this.optional(element) || phone_number.length > 10 &&
+            phone_number.match(/^(?!\b(0)\1+\b)(\+?\d{1,3}[. -]?)?\(?\d{3}\)?([. -]?)\d{3}\3\d{4}$/);
+    }, "Invalid phone number");
+
     $(function () {
         $('#add_faculty').validate({
 
@@ -139,12 +156,14 @@
                 },
                 civil_status:{
                     required: true,
+
                 },
                 address:{
                     required: true,
                 },
                 contact:{
                     required: true,
+                    phoneValidation: true,
                 },
                 image:{
                     required: false
@@ -174,7 +193,8 @@
                     required: 'Permanent address is required',
                 },
                 contact:{
-                    required: 'Contact is required'
+                    required: 'Contact is required',
+                    phoneValidation: "Invalid Number",
                 },
                 image:{
                     required: 'Profile picture required'

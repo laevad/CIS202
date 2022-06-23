@@ -22,7 +22,8 @@
 
 
     <link rel="stylesheet" href="<?php echo url_for('assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')?>">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <title><?php echo $title ?></title>
 </head>
 <body class="hold-transition sidebar-mini  layout-navbar-fixed  layout-fixed">
